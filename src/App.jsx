@@ -1,30 +1,30 @@
 import AppName from "./components/AppName";
 import AddTodo from "./components/AddTodo";
+import TodoItems from "./components/TodoItems";
+
+import "./App.css";
 
 function App() {
+  let content = [
+    {
+      title: "Buy Milk",
+      dueDate: "10/10/90",
+    },
+    {
+      title: "Do Fun",
+      dueDate: "10/10/10",
+    },
+    {
+      title: "Have Fun",
+      dueDate: "10/10/11",
+    },
+  ];
+
   return (
-    <center class="todo-container">
+    <center className="todo-container">
       <AppName></AppName>
       <AddTodo></AddTodo>
-      <div class="row">
-        <div className="col-4">Wake up at 7:30 AM</div>
-        <div className="col-4">12/12/2024</div>
-        <div className="col-2">
-          <button type="button" class="btn btn-danger">
-            Delete
-          </button>
-        </div>
-      </div>
-
-      <div class="row">
-        <div className="col-4">Code atleast half an hour a day</div>
-        <div className="col-4">10/12/2024</div>
-        <div className="col-2">
-          <button type="button" class="btn btn-danger">
-            Delete
-          </button>
-        </div>
-      </div>
+      <TodoItems todoItems={content}></TodoItems>
     </center>
   );
 }

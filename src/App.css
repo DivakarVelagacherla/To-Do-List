@@ -1,0 +1,11 @@
+.container {
+  text-align: left;
+}
+
+.row-margin {
+  margin: 10px 20px;
+}
+
+.col-2 button {
+  width: 100px;
+}

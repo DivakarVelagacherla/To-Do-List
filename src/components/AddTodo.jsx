@@ -1,15 +1,21 @@
+import styles from "./AddTodo.module.css";
+
 function AddTodo() {
   return (
-    <div class="container text-centre">
-      <div class="row">
+    <div className="container">
+      <div className="row row-margin">
         <div className="col-4">
-          <input type="text" placeholder="Enter the Task" />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Enter the Task"
+          />
         </div>
         <div className="col-4">
-          <input type="date" />
+          <input className={styles.input} type="date" />
         </div>
         <div className="col-2">
-          <button type="button" class="btn btn-success">
+          <button type="button" className="btn btn-success">
             Add
           </button>
         </div>
