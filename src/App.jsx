@@ -3,28 +3,30 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 
 import "./App.css";
+import { useState } from "react";
+import WelcomeMessage from "./components/WelcomeMessage";
 
 function App() {
-  let content = [
-    {
-      title: "Buy Milk",
-      dueDate: "10/10/90",
-    },
-    {
-      title: "Do Fun",
-      dueDate: "10/10/10",
-    },
-    {
-      title: "Have Fun",
-      dueDate: "10/10/11",
-    },
-  ];
+  const [todoItems, setTodoItems] = useState([]);
+
+  const onNewItem = (title, dueDate) => {
+    const newItems = [...todoItems, { title: title, dueDate: dueDate }];
+    setTodoItems(newItems);
+  };
+
+  const handleDeleteItem = (todoItemName) => {
+    const itemsAfterDelete = todoItems.filter(
+      (item) => item.title !== todoItemName
+    );
+    setTodoItems(itemsAfterDelete);
+  };
 
   return (
     <center className="todo-container">
-      <AppName></AppName>
-      <AddTodo></AddTodo>
-      <TodoItems todoItems={content}></TodoItems>
+      <AppName />
+      <AddTodo onNewItem={onNewItem} />
+      {todoItems.length === 0 && <WelcomeMessage />}
+      <TodoItems todoItems={todoItems} onDeleteClick={handleDeleteItem} />
     </center>
   );
 }
